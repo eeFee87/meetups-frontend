@@ -1,7 +1,11 @@
-import './App.css';
+import Header from './components/Header.jsx';
 
 function App() {
-  return <h1>meetup front</h1>;
+  return (
+    <div>
+      <Header />
+    </div>
+  );
 }
 
 export default App;
