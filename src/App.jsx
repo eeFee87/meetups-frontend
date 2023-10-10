@@ -1,9 +1,15 @@
-import Header from './components/Header.jsx';
+import MainPage from './pages/mainPage.jsx';
+import { Routes, Route } from 'react-router-dom';
 
 function App() {
   return (
     <div>
-      <Header />
+      <Routes>
+        <Route
+          path='/'
+          element={<MainPage />}
+        />
+      </Routes>
     </div>
   );
 }
