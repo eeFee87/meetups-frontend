@@ -1,10 +1,18 @@
 import PropTypes from 'prop-types';
+import meetupLogo from '../assets/meetup-logo-2.png';
+import { NavLink } from 'react-router-dom';
 
-function Header({ title, children }) {
+function Header({ children }) {
   return (
-    <div>
-      <h1 className='underline text-5xl text-center'>{title}</h1>
-      <div>{children}</div>
+    <div className='flex  justify-around py-4'>
+      <NavLink to='/'>
+        <img
+          className='w-48'
+          src={meetupLogo}
+          alt='meetup-logo'
+        />
+      </NavLink>
+      <div className='flex  gap-6 items-center'>{children}</div>
     </div>
   );
 }
@@ -12,6 +20,5 @@ function Header({ title, children }) {
 export default Header;
 
 Header.propTypes = {
-  title: PropTypes.string,
   children: PropTypes.node
 };
