@@ -1,6 +1,40 @@
+import swal from 'sweetalert';
+import { useState } from 'react';
+import { loginService } from '../services/users';
+import { useNavigate } from 'react-router-dom';
+
 function LoginForm() {
+  const navigate = useNavigate();
+  const [loginData, setLoginData] = useState({
+    email: '',
+    password: ''
+  });
+  const handleInputChange = ({ target }) => {
+    const { name, value } = target;
+    setLoginData({
+      ...loginData,
+      [name]: value
+    });
+  };
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const result = await loginService(loginData);
+      if (result.status === 'error') {
+        throw new Error(result.message);
+      } else {
+        swal('Has iniciado sesión');
+        navigate('/');
+      }
+    } catch (error) {
+      swal('Ha ocurrido un error', error.message);
+    }
+  };
   return (
-    <form className='min-w-[300px] w '>
+    <form
+      onSubmit={handleSubmit}
+      className='min-w-[300px] w '
+    >
       <div className='mb-6'>
         <label
           htmlFor='email'
@@ -12,6 +46,8 @@ function LoginForm() {
           type='email'
           id='email'
           name='email'
+          value={loginData.email}
+          onChange={handleInputChange}
           className='shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5'
           placeholder='nombre@email.com'
           required
@@ -28,6 +64,8 @@ function LoginForm() {
           type='password'
           id='password'
           name='password'
+          value={loginData.password}
+          onChange={handleInputChange}
           className='shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5'
           required
         />
