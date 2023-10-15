@@ -5,7 +5,7 @@ import MeetupsList from '../components/MeetupList';
 function MainPage() {
   const navigate = useNavigate();
   return (
-    <div className='flex flex-col min-h-screen gap-20'>
+    <main className='flex flex-col min-h-screen gap-20'>
       <Header title='Meetup-App'>
         <button
           onClick={() => navigate('/login')}
@@ -21,7 +21,7 @@ function MainPage() {
         </button>
       </Header>
       <MeetupsList className='flex-1' />
-    </div>
+    </main>
   );
 }
 

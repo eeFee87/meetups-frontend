@@ -4,7 +4,7 @@ import { NavLink } from 'react-router-dom';
 
 function Header({ children }) {
   return (
-    <div className='flex  justify-around py-4'>
+    <header className='flex  justify-around py-4'>
       <NavLink to='/'>
         <img
           className='w-48'
@@ -13,7 +13,7 @@ function Header({ children }) {
         />
       </NavLink>
       <div className='flex  gap-6 items-center'>{children}</div>
-    </div>
+    </header>
   );
 }
 

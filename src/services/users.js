@@ -1,16 +1,15 @@
+import { getToken } from '../utils/getToken';
+const url = import.meta.env.VITE_API_URL;
+
 export const registerService = async (registerData) => {
-  console.log(registerData);
   try {
-    const response = await fetch(
-      `${import.meta.env.VITE_REACT_APP_BACKEND}/users`,
-      {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(registerData)
-      }
-    ).catch(function (error) {
+    const response = await fetch(`${url}/users`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(registerData)
+    }).catch(function (error) {
       // Error handling here!
 
       throw new Error(`HTTP error! Status: ${error}`);
@@ -26,16 +25,13 @@ export const registerService = async (registerData) => {
 
 export const loginService = async (loginData) => {
   try {
-    const response = await fetch(
-      `${import.meta.env.VITE_REACT_APP_BACKEND}/login`,
-      {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(loginData)
-      }
-    ).catch(function (error) {
+    const response = await fetch(`${url}/login`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(loginData)
+    }).catch(function (error) {
       // Error handling here!
       throw new Error(`HTTP error! Status: ${error}`);
     });
@@ -45,4 +41,15 @@ export const loginService = async (loginData) => {
     console.error('Error en la solicitud:', error.response);
     throw error;
   }
+};
+
+export const profileService = async () => {
+  const token = getToken();
+  const response = await fetch(`${url}/users`, {
+    headers: {
+      Authorization: token
+    }
+  });
+  const data = await response.json();
+  return data;
 };
