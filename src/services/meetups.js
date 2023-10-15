@@ -1,7 +1,7 @@
 import { getToken } from '../utils/getToken';
 const url = import.meta.env.VITE_API_URL;
 
-export const getMeetups = async () => {
+export const listMeetupsService = async () => {
   const response = await fetch(`${url}/meetups`);
   const data = await response.json();
   return data;

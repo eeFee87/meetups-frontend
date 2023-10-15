@@ -1,11 +1,12 @@
 import { useNavigate } from 'react-router-dom';
 import Header from '../components/Header';
 import MeetupsList from '../components/MeetupList';
+import { Hero } from '../components/Hero';
 
 function MainPage() {
   const navigate = useNavigate();
   return (
-    <main className='flex flex-col min-h-screen gap-20'>
+    <div className='flex flex-col min-h-screen gap-20'>
       <Header title='Meetup-App'>
         <button
           onClick={() => navigate('/login')}
@@ -20,8 +21,9 @@ function MainPage() {
           Registro
         </button>
       </Header>
+      <Hero />
       <MeetupsList className='flex-1' />
-    </main>
+    </div>
   );
 }
 
