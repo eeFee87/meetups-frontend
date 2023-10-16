@@ -43,13 +43,16 @@ export const loginService = async (loginData) => {
   }
 };
 
-export const profileService = async () => {
+export const getProfileUserService = async () => {
   const token = getToken();
+
   const response = await fetch(`${url}/users`, {
     headers: {
       Authorization: token
     }
   });
   const data = await response.json();
+  console.log(data);
+
   return data;
 };

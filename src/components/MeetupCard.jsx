@@ -9,6 +9,7 @@ export const MeetupCard = ({
   description,
   category,
   totalInscriptions,
+  photo,
   city,
   date
 }) => {
@@ -84,6 +85,7 @@ MeetupCard.propTypes = {
   description: PropTypes.string,
   category: PropTypes.string.isRequired,
   totalInscriptions: PropTypes.number.isRequired,
+  photo: PropTypes.string,
   city: PropTypes.string.isRequired,
   date: PropTypes.string.isRequired
 };

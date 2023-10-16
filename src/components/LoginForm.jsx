@@ -1,10 +1,13 @@
 import swal from 'sweetalert';
 import { useState } from 'react';
-import { loginService } from '../services/users';
+// import { loginService } from '../services/users';
 import { useNavigate } from 'react-router-dom';
+import { useAuth } from '../hooks/useAuth';
 
 function LoginForm() {
   const navigate = useNavigate();
+  const { authLogin } = useAuth();
+  // const navigate = useNavigate();
   const [loginData, setLoginData] = useState({
     email: '',
     password: ''
@@ -19,13 +22,9 @@ function LoginForm() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const result = await loginService(loginData);
-      if (result.status === 'error') {
-        throw new Error(result.message);
-      } else {
-        swal('Has iniciado sesión');
-        navigate('/');
-      }
+      await authLogin(loginData);
+      swal('Has iniciado sesión');
+      navigate('/');
     } catch (error) {
       swal('Ha ocurrido un error', error.message);
     }

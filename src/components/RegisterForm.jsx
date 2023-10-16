@@ -11,7 +11,7 @@ function RegisterForm() {
     password: '',
     biography: ''
   });
-
+  const [loading, setLoading] = useState(false);
   const handleInputChange = ({ target }) => {
     const { name, value } = target;
     setRegisterData({
@@ -29,6 +29,7 @@ function RegisterForm() {
       swal('Las contraseñas no coinciden');
     } else {
       try {
+        setLoading(true);
         const result = await registerService(registerData);
         if (result.status === 'error') {
           throw new Error(result.message);
@@ -38,6 +39,8 @@ function RegisterForm() {
         }
       } catch (error) {
         swal('Ha ocurrido un error', error.message);
+      } finally {
+        setLoading(false);
       }
     }
   };
@@ -134,6 +137,7 @@ function RegisterForm() {
       </div>
 
       <button
+        disabled={loading}
         type='submit'
         className='text-white bg-teal-700 hover:bg-teal-800 focus:ring-4 focus:outline-none focus:ring-teal-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-teal-600 dark:hover:bg-teal-700 dark:focus:ring-teal-800'
       >
