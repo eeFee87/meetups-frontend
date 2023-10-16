@@ -1,26 +1,60 @@
 import PropTypes from 'prop-types';
-import checkListIcon from '../assets/checklist.png';
-export const MeetupCard = ({ id, title, description, totalInscriptions }) => {
+import checkListIcon from '../assets/checklist-icon.png';
+import defaultMeetupImage from '../assets/default-meetup-image.jpg';
+import cityIcon from '../assets/city-icon.png';
+import calendarIcon from '../assets/calendar-icon.png';
+export const MeetupCard = ({
+  id,
+  title,
+  description,
+  category,
+  totalInscriptions,
+  city,
+  date
+}) => {
   return (
     <li
-      className='max-h-sm max-w-sm  bg-white border border-gray-200 rounded-lg shadow drop-shadow-lg'
+      className='max-h-sm max-w-sm w-full  bg-white border border-gray-200 rounded-lg shadow drop-shadow-lg'
       key={id}
     >
       <a href='#'>
         <img
-          className='rounded-t-lg'
-          src='/docs/images/blog/image-1.jpg'
+          className='rounded-t-lg w-full h-60 object-cover'
+          src={defaultMeetupImage}
           alt=''
         />
       </a>
       <div className='p-5 h-80 flex flex-col'>
-        <h5 className='mb-2 text-2xl font-bold tracking-tight text-gray-900'>
-          {title}
+        <h5 className='mb-2 pt-6 h-full text-3xl font-bold tracking-tight text-gray-900 drop-shadow-lg'>
+          {title}.
         </h5>
+        <div className='flex justify-center pb-3'>
+          <p className='mb-3 font-semibold text-gray-700 '>
+            <span className='text-teal-600 text-lg'> Temática: </span>
+            <span className='font-semibold'>{category}</span>
+          </p>
+        </div>
 
-        <p className='py-5 mb-3 font-normal text-gray-700 dark:text-gray-400 h-full'>
-          {description}
-        </p>
+        <div className='flex justify-between'>
+          <div className='flex items-center gap-2 pb-8'>
+            <img
+              className='w-8 h-8 opacity-70'
+              src={cityIcon}
+              alt='city icon'
+            />
+            <p className='font-semibold text-lg'>{city}</p>
+          </div>
+          <div className='flex items-center gap-2 pb-8'>
+            <img
+              className='w-8 h-8 opacity-70'
+              src={calendarIcon}
+              alt='city icon'
+            />
+            <p className='font-semibold text-lg'>
+              {new Date(date).toLocaleDateString()}
+            </p>
+          </div>
+        </div>
         <div className='flex justify-between'>
           <div className='flex items-center gap-2'>
             <img
@@ -28,7 +62,9 @@ export const MeetupCard = ({ id, title, description, totalInscriptions }) => {
               src={checkListIcon}
               alt='checklist icon'
             />
-            <p>{totalInscriptions} inscritos</p>
+            <p className='font-semibold text-md'>
+              {totalInscriptions} inscritos
+            </p>
           </div>
           <button
             type='button'
@@ -44,7 +80,10 @@ export const MeetupCard = ({ id, title, description, totalInscriptions }) => {
 
 MeetupCard.propTypes = {
   id: PropTypes.number,
-  title: PropTypes.string,
+  title: PropTypes.string.isRequired,
   description: PropTypes.string,
-  totalInscriptions: PropTypes.number
+  category: PropTypes.string.isRequired,
+  totalInscriptions: PropTypes.number.isRequired,
+  city: PropTypes.string.isRequired,
+  date: PropTypes.string.isRequired
 };

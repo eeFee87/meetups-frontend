@@ -44,7 +44,7 @@ function RegisterForm() {
   return (
     <form
       onSubmit={handleSubmit}
-      className='min-w-[300px] w '
+      className='min-w-[300px] pt-12'
     >
       <div className='mb-6'>
         <label

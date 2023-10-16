@@ -1,3 +1,5 @@
+- Iconos para la app de https://www.freepik.es/
+
 1. Arreglar la meetupsCard (hay que quitar descripcion y añadir imagen localidad fecha y temática)
 2. Ver como hacer el detalle (modal o nueva vista)
 3. El botón de ver detalle de la meetup solo se puede ver si hay un login

@@ -33,7 +33,7 @@ function LoginForm() {
   return (
     <form
       onSubmit={handleSubmit}
-      className='min-w-[300px] w '
+      className='min-w-[300px] pt-20'
     >
       <div className='mb-6'>
         <label
