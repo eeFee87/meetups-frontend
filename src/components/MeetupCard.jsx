@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types';
+import { useNavigate } from 'react-router-dom';
 import checkListIcon from '../assets/checklist-icon.png';
 import defaultMeetupImage from '../assets/default-meetup-image.jpg';
 import cityIcon from '../assets/city-icon.png';
@@ -13,18 +14,18 @@ export const MeetupCard = ({
   city,
   date
 }) => {
+  const navigate = useNavigate();
   return (
     <li
       className='max-h-sm max-w-sm w-full  bg-white border border-gray-200 rounded-lg shadow drop-shadow-lg'
       key={id}
     >
-      <a href='#'>
-        <img
-          className='rounded-t-lg w-full h-60 object-cover'
-          src={defaultMeetupImage}
-          alt=''
-        />
-      </a>
+      <img
+        className='rounded-t-lg w-full h-60 object-cover'
+        src={defaultMeetupImage}
+        alt='image meetup'
+      />
+
       <div className='p-5 h-80 flex flex-col'>
         <h5 className='mb-2 pt-6 h-full text-3xl font-bold tracking-tight text-gray-900 drop-shadow-lg'>
           {title}.
@@ -69,6 +70,9 @@ export const MeetupCard = ({
           </div>
           <button
             type='button'
+            onClick={() => {
+              navigate(`/meetup/${id}`);
+            }}
             className=' max-w-[120px] justify-center items-center px-3 py-2 text-sm font-medium text-center text-white bg-teal-700 rounded-lg hover:bg-teal-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-teal-600 dark:hover:bg-teal-700 dark:focus:ring-teal-800 '
           >
             Ver detalle

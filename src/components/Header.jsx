@@ -1,10 +1,9 @@
 import PropTypes from 'prop-types';
 import meetupLogo from '../assets/meetup-logo-2.png';
-// import avatarDefault from '../assets/avatar-default.png';
+import avatarDefault from '../assets/avatar-default.png';
 import { NavLink } from 'react-router-dom';
 import { useAuth } from '../hooks/useAuth';
-const backendUrl = import.meta.env.VITE_API_URL;
-console.log(backendUrl);
+// const backendUrl = import.meta.env.VITE_API_URL;
 
 function Header({ children }) {
   const { authUser } = useAuth();
@@ -23,7 +22,8 @@ function Header({ children }) {
           <img
             className='opacity-80'
             width={40}
-            src={`${backendUrl}/docs/images/${authUser.avatar}`}
+            // src={`${backendUrl}/docs/images/${authUser.avatar}`}
+            src={avatarDefault}
             alt='avatar image'
           />
           <p className='text-2xl font-semibold'> {authUser.name}</p>

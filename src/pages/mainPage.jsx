@@ -37,7 +37,7 @@ function MainPage() {
         {authUser && (
           <button
             onClick={() => authLogout()}
-            className='h-10 px-3  text-sm font-medium text-center text-white bg-teal-700 rounded-lg hover:bg-teal-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-teal-600 dark:hover:bg-teal-700 dark:focus:ring-teal-800'
+            className='h-10 w-20 px-3  text-sm font-medium text-center text-white bg-teal-700 rounded-lg hover:bg-teal-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-teal-600 dark:hover:bg-teal-700 dark:focus:ring-teal-800'
           >
             LogOut
           </button>

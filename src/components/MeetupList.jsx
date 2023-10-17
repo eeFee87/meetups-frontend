@@ -13,6 +13,7 @@ function MeetupList() {
         {meetups?.length > 0 &&
           meetups.map((meetup) => (
             <MeetupCard
+              id={meetup.id}
               key={meetup.id}
               title={meetup.title}
               description={meetup.description}

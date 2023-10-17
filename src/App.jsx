@@ -1,7 +1,8 @@
-import MainPage from './pages/mainPage.jsx';
+import { Routes, Route } from 'react-router-dom';
+import MainPage from './pages/MainPage.jsx';
 import RegisterPage from './pages/registerPage.jsx';
 import LoginPage from './pages/loginPage.jsx';
-import { Routes, Route } from 'react-router-dom';
+import DetailMeetupPage from './pages/DetailMeetupPage.jsx';
 import NotFoundPage from './pages/NotFoundPage.jsx';
 
 function App() {
@@ -19,6 +20,10 @@ function App() {
         <Route
           path='/login'
           element={<LoginPage />}
+        />
+        <Route
+          path='/meetup/:id'
+          element={<DetailMeetupPage />}
         />
         <Route
           path='/*'

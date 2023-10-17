@@ -7,6 +7,13 @@ export const listMeetupsService = async () => {
   return data;
 };
 
+export const getOneMeetupService = async (id) => {
+  const response = await fetch(`${url}/meetup/${id}`);
+  const data = await response.json();
+
+  return data;
+};
+
 export const createMettupService = async (meetupData) => {
   const token = getToken();
   const response = await fetch(`${url}/meetups`, {
@@ -26,7 +33,19 @@ export const inscribeMeetupService = async (meetupId) => {
   const token = getToken();
   const response = await fetch(`${url}/inscription/${meetupId}`, {
     // eslint-disable-next-line no-undef
-    method,
+    method: 'POST',
+    headers: {
+      Authorization: token
+    }
+  });
+  const data = await response.json();
+  return data;
+};
+export const deleteInscribeMeetupService = async (meetupId) => {
+  const token = getToken();
+  const response = await fetch(`${url}/inscription/${meetupId}`, {
+    // eslint-disable-next-line no-undef
+    method: 'DELETE',
     headers: {
       Authorization: token
     }
