@@ -1,10 +1,10 @@
 import { NavLink } from 'react-router-dom';
 import Header from '../components/Header';
-import LoginForm from '../components/LoginForm';
+import AddMeetupForm from '../components/AddMeetupForm';
 
-function LoginPage() {
+function AddMettupPage() {
   return (
-    <div className='flex flex-col '>
+    <div>
       <Header className='flex justify-between'>
         <NavLink
           to='/'
@@ -16,9 +16,9 @@ function LoginPage() {
           Volver
         </NavLink>
       </Header>
-      <LoginForm />
+      <AddMeetupForm />
     </div>
   );
 }
 
-export default LoginPage;
+export default AddMettupPage;

@@ -1,8 +1,7 @@
 - Iconos para la app de https://www.freepik.es/
 
-- Hacer el detalle de la meetup (nueva vista)
+- Añadir función al boton de crear meetups
 - Filtrado de las meetups (temática y ciudad)
-- Formulario para crear una nueva meetup
 - Imagenes del backend ???
 
 # Meetups

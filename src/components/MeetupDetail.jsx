@@ -17,7 +17,7 @@ function MeetupDetail({ meetup }) {
   );
 
   const [isInscribed, setIsInscribed] = useState(
-    allInscriptionsIds.some((item) => item === authUser.id)
+    allInscriptionsIds.some((item) => item === authUser?.id)
   );
   const [inscriptionsNames, setInscriptionsNames] = useState(
     meetup.inscriptions.map((item) => item.name)
@@ -39,8 +39,9 @@ function MeetupDetail({ meetup }) {
       <h1 className='text-center text-6xl font-bold drop-shadow-sm py-14'>
         {meetup.title}
       </h1>
-      <div className='flex flex-col justify-around items-center gap-8 py-16 sm:flex-row '>
+      <div className='flex flex-col justify-around items-center gap-8 py-16 sm:flex-row xl:mx-44'>
         <img
+          className='drop-shadow-lg'
           width={400}
           src={defaultPhoto}
           alt='meetup image'
@@ -84,12 +85,12 @@ function MeetupDetail({ meetup }) {
         </div>
       )}
 
-      <div className='flex flex-col justify-between md:flex-row gap-8 p-8'>
+      <div className='flex flex-col justify-between md:flex-row gap-8 p-8 2xl:mx-60 xl:mx-44'>
         <div className='flex flex-col gap-2'>
-          <div className='flex items-center gap-4'>
+          <div className='flex  items-center gap-4'>
             <img
               className='opacity-90'
-              width={40}
+              width={35}
               src={calendarIcon}
               alt='calendar icon'
             />
@@ -100,7 +101,7 @@ function MeetupDetail({ meetup }) {
           <div className='flex items-center gap-4'>
             <img
               className='opacity-90'
-              width={40}
+              width={35}
               src={clockIcon}
               alt='clock icon'
             />
@@ -109,22 +110,33 @@ function MeetupDetail({ meetup }) {
             </p>
           </div>
         </div>
-        <p className='text-xl font-semibold '>
-          <span className='text-teal-600 font-bold drop-shadow-md'>
-            Temática:
-          </span>{' '}
-          {meetup.category}
-        </p>
-        <p className='text-xl font-semibold'>
-          <span className='text-teal-600 font-bold drop-shadow-md'>Lugar:</span>{' '}
-          {meetup.city}
-        </p>
-        <p className={authUser ? 'hidden' : 'text-xl font-semibold'}>
-          <span className='text-teal-600 font-bold drop-shadow-md'>
+        <div className='flex flex-col items-center gap-1'>
+          <p className='flex flex-col text-xl  text-teal-600 font-bold drop-shadow-md '>
+            Temática
+          </p>
+
+          <p className='text-xl font-semibold'> {meetup.category}</p>
+        </div>
+        <div className='flex flex-col items-center gap-1'>
+          <p className='flex flex-col text-xl  text-teal-600 font-bold drop-shadow-md '>
+            Lugar
+          </p>
+
+          <p className='text-xl font-semibold'> {meetup.city}</p>
+        </div>
+        <div
+          className={
+            authUser
+              ? 'hidden'
+              : 'text-xl font-semibold flex flex-col items-center'
+          }
+        >
+          <p className='text-teal-600 font-bold drop-shadow-md'>
             Personas Inscritas:
-          </span>{' '}
+          </p>
           {meetup.total_inscriptions}
-        </p>
+        </div>
+
         {authUser && (
           <div className='flex flex-col items-center'>
             <p className='text-xl font-bold text-teal-600 drop-shadow-md'>

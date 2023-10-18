@@ -3,6 +3,7 @@ import MainPage from './pages/MainPage.jsx';
 import RegisterPage from './pages/registerPage.jsx';
 import LoginPage from './pages/loginPage.jsx';
 import DetailMeetupPage from './pages/DetailMeetupPage.jsx';
+import AddMettupPage from './pages/AddMettupPage.jsx';
 import NotFoundPage from './pages/NotFoundPage.jsx';
 
 function App() {
@@ -24,6 +25,10 @@ function App() {
         <Route
           path='/meetup/:id'
           element={<DetailMeetupPage />}
+        />
+        <Route
+          path='/addMeetup'
+          element={<AddMettupPage />}
         />
         <Route
           path='/*'
