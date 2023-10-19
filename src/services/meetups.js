@@ -15,16 +15,13 @@ export const getOneMeetupService = async (id) => {
 };
 
 export const createMeetupService = async (meetupData) => {
-  const formatDate = new Date(meetupData.date).toISOString();
-  meetupData.date = formatDate;
   const token = getToken();
   const response = await fetch(`${url}/meetups`, {
     method: 'POST',
     headers: {
-      Authorization: token,
-      'Content-Type': 'application/json'
+      Authorization: token
     },
-    body: JSON.stringify(meetupData)
+    body: meetupData
     // body: meetupData
   });
   const data = await response.json();

@@ -1,9 +1,7 @@
 - Iconos para la app de https://www.freepik.es/
 
--✅ Añadir función al boton de crear meetups
-
-- Filtrado de las meetups (temática y ciudad)
-- Imagenes del backend ???
+- Revisar lo de añadir imagenes de usuarios (formulario de registro)
+- Crear unas 20 meetups bien hechas y con imagenes
 
 # Meetups
 
@@ -12,7 +10,7 @@
 Portal web que muestra meetups por ciudad y temática y permite inscribirse a
 estos
 
-### USUARIOS ANÓNIMOS:
+### FUNCIONES USUARIOS ANÓNIMOS:
 
 - Visualizar el listado de meetups ordenador por fecha más próxima (no
   aparecen los que ya han pasado). Solo debe aparecer título, foto,
@@ -28,7 +26,7 @@ estos
 - Registro (email, password, nombre, biografía y avatar)
 - **Opcional**: Posibilidad de ordenar meetups por número de asistentes
 
-### USUARIOS REGISTRADOS:
+### FUNCIONES USUARIOS REGISTRADOS:
 
 - Lo mismo que los anónimos
 - Inscribirse o darse de baja de un meetup

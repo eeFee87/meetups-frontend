@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import { useNavigate } from 'react-router-dom';
 import checkListIcon from '../assets/checklist-icon.png';
-import defaultMeetupImage from '../assets/default-meetup-image.jpg';
+// import defaultMeetupImage from '../assets/default-meetup-image.jpg';
 import cityIcon from '../assets/city-icon.png';
 import calendarIcon from '../assets/calendar-icon.png';
 export const MeetupCard = ({
@@ -22,7 +22,7 @@ export const MeetupCard = ({
     >
       <img
         className='rounded-t-lg w-full h-60 object-cover'
-        src={defaultMeetupImage}
+        src={`http://localhost:3000/${photo}`}
         alt='image meetup'
       />
 

@@ -11,6 +11,7 @@ export const useMeetups = () => {
         setLoading(true);
         const data = await listMeetupsService();
         setMeetups(data.meetups);
+
         setLoading(false);
       } catch (error) {
         swal('Ha ocurrido un error', error.message);
@@ -20,5 +21,9 @@ export const useMeetups = () => {
     }
     fetchMeetups();
   }, []);
-  return { meetups, loading };
+
+  return {
+    meetups,
+    loading
+  };
 };

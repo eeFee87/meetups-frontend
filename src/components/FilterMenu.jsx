@@ -1,25 +1,13 @@
-import { useState } from 'react';
+import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
 import { useAuth } from '../hooks/useAuth';
-import { useMeetups } from '../hooks/useMeetups';
 
-export const FilterMenu = () => {
-  const { meetups } = useMeetups();
-  const [selectFilterCategories, setSelectFilterCategories] = useState();
-  const [selectFilterCities, setSelectFilterCities] = useState();
-
-  const filterMeetups = meetups?.filter((meetup) => {
-    const categoryFilter =
-      !selectFilterCategories || meetup.category === selectFilterCategories;
-
-    const cityFilter =
-      !selectFilterCities || meetup.city === selectFilterCities;
-
-    return categoryFilter && cityFilter;
-  });
-
-  console.log(filterMeetups);
-
+export const FilterMenu = ({
+  setSelectFilterCategories,
+  setSelectFilterCities,
+  selectFilterCategories,
+  selectFilterCities
+}) => {
   const { authUser } = useAuth();
   return (
     <div className=' flex flex-col items-center md:flex-row  mb-6 md:justify-around gap-4'>
@@ -30,7 +18,12 @@ export const FilterMenu = () => {
           value={selectFilterCategories}
           className=' w-60 bg-gray-50 border border-gray-300 text-gray-900 text-lg rounded-lg focus:ring-teal-500 focus:border-teal-500 block  p-2.5 '
         >
-          <option defaultValue>Filtrar por temática</option>
+          <option
+            defaultValue
+            value=''
+          >
+            Filtrar por temática
+          </option>
           <option value='Fotografia'>Fotografía</option>
           <option value='Ciencia'>Ciencia</option>
           <option value='Tecnologia'>Tecnología</option>
@@ -50,7 +43,12 @@ export const FilterMenu = () => {
           value={selectFilterCities}
           className='bg-gray-50 border border-gray-300 text-gray-900 text-lg rounded-lg focus:ring-teal-500 focus:border-teal-500 block w-60 p-2.5 '
         >
-          <option defaultValue>Filtrar por ciudad</option>
+          <option
+            defaultValue
+            value=''
+          >
+            Filtrar por ciudad
+          </option>
           <option value='Andalucia'>Andalucía</option>
           <option value='Aragon'>Aragón</option>
           <option value='Asturias'>Asturias</option>
@@ -85,4 +83,10 @@ export const FilterMenu = () => {
       )}
     </div>
   );
+};
+FilterMenu.propTypes = {
+  setSelectFilterCategories: PropTypes.func,
+  setSelectFilterCities: PropTypes.func,
+  selectFilterCategories: PropTypes.string,
+  selectFilterCities: PropTypes.string
 };

@@ -21,11 +21,24 @@ function AddMeetupForm() {
       [name]: value
     });
   };
+  const handleInputChangeFile = ({ target }) => {
+    const { name, files } = target;
+    setMeetupData({
+      ...meetupData,
+      [name]: files[0]
+    });
+  };
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
       setLoading(true);
-      const result = await createMeetupService(meetupData);
+      const formData = new FormData();
+      for (const key in meetupData) {
+        formData.append(key, meetupData[key]);
+      }
+      formData.set('date', new Date(meetupData.date).toISOString());
+
+      const result = await createMeetupService(formData);
       console.log(result);
       if (result.status === 'error') {
         throw new Error(result.message);
@@ -34,6 +47,7 @@ function AddMeetupForm() {
         navigate('/');
       }
     } catch (error) {
+      console.log(error);
       swal('Ha ocurrido un error', error.message);
     } finally {
       setLoading(false);
@@ -172,7 +186,7 @@ function AddMeetupForm() {
             type='file'
             id='file_input'
             name='photo'
-            onChange={handleInputChange}
+            onChange={handleInputChangeFile}
             className='block w-full text-lg  text-gray-900 border border-gray-300 rounded-md cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dar'
           />
         </div>
