@@ -1,13 +1,31 @@
+import PropTypes from 'prop-types';
+import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { useAuth } from '../hooks/useAuth';
+import { useMeetups } from '../hooks/useMeetups';
 
 export const FilterMenu = () => {
+  const { meetups } = useMeetups();
+  const [selectFilterCategories, setSelectFilterCategories] = useState([]);
+  const [selectFilterCities, setSelectFilterCities] = useState([]);
+
+  const filterMeetups = meetups?.filter(
+    (meetup) =>
+      (meetup.category === selectFilterCategories &&
+        meetup.city === selectFilterCities) ||
+      meetup.category === selectFilterCategories ||
+      meetup.city === selectFilterCities
+  );
+  console.log(filterMeetups);
+
   const { authUser } = useAuth();
   return (
     <div className=' flex flex-col items-center md:flex-row  mb-6 md:justify-around gap-4'>
       <div className='flex flex-col sm:flex-row gap-4 '>
         <select
+          onChange={(e) => setSelectFilterCategories(e.target.value)}
           id='categories'
+          value={selectFilterCategories}
           className=' w-60 bg-gray-50 border border-gray-300 text-gray-900 text-lg rounded-lg focus:ring-teal-500 focus:border-teal-500 block  p-2.5 '
         >
           <option defaultValue>Filtrar por temática</option>
@@ -25,7 +43,9 @@ export const FilterMenu = () => {
         </select>
 
         <select
+          onChange={(e) => setSelectFilterCities(e.target.value)}
           id='cities'
+          value={selectFilterCities}
           className='bg-gray-50 border border-gray-300 text-gray-900 text-lg rounded-lg focus:ring-teal-500 focus:border-teal-500 block w-60 p-2.5 '
         >
           <option defaultValue>Filtrar por ciudad</option>
@@ -63,4 +83,8 @@ export const FilterMenu = () => {
       )}
     </div>
   );
+};
+
+FilterMenu.propTypes = {
+  meetups: PropTypes.array.isRequired
 };

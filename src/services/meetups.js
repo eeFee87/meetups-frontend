@@ -14,7 +14,9 @@ export const getOneMeetupService = async (id) => {
   return data;
 };
 
-export const createMettupService = async (meetupData) => {
+export const createMeetupService = async (meetupData) => {
+  const formatDate = new Date(meetupData.date).toISOString();
+  meetupData.date = formatDate;
   const token = getToken();
   const response = await fetch(`${url}/meetups`, {
     method: 'POST',
@@ -22,10 +24,11 @@ export const createMettupService = async (meetupData) => {
       Authorization: token,
       'Content-Type': 'application/json'
     },
-    // body: JSON.stringify(meetupData)
-    body: meetupData
+    body: JSON.stringify(meetupData)
+    // body: meetupData
   });
   const data = await response.json();
+  console.log(data);
   return data;
 };
 

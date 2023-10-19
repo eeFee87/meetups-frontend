@@ -1,6 +1,7 @@
 - Iconos para la app de https://www.freepik.es/
 
-- Añadir función al boton de crear meetups
+-✅ Añadir función al boton de crear meetups
+
 - Filtrado de las meetups (temática y ciudad)
 - Imagenes del backend ???
 
