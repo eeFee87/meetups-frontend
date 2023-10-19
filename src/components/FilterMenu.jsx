@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { useAuth } from '../hooks/useAuth';
@@ -6,16 +5,19 @@ import { useMeetups } from '../hooks/useMeetups';
 
 export const FilterMenu = () => {
   const { meetups } = useMeetups();
-  const [selectFilterCategories, setSelectFilterCategories] = useState([]);
-  const [selectFilterCities, setSelectFilterCities] = useState([]);
+  const [selectFilterCategories, setSelectFilterCategories] = useState();
+  const [selectFilterCities, setSelectFilterCities] = useState();
 
-  const filterMeetups = meetups?.filter(
-    (meetup) =>
-      (meetup.category === selectFilterCategories &&
-        meetup.city === selectFilterCities) ||
-      meetup.category === selectFilterCategories ||
-      meetup.city === selectFilterCities
-  );
+  const filterMeetups = meetups?.filter((meetup) => {
+    const categoryFilter =
+      !selectFilterCategories || meetup.category === selectFilterCategories;
+
+    const cityFilter =
+      !selectFilterCities || meetup.city === selectFilterCities;
+
+    return categoryFilter && cityFilter;
+  });
+
   console.log(filterMeetups);
 
   const { authUser } = useAuth();
@@ -83,8 +85,4 @@ export const FilterMenu = () => {
       )}
     </div>
   );
-};
-
-FilterMenu.propTypes = {
-  meetups: PropTypes.array.isRequired
 };
