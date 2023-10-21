@@ -26,7 +26,7 @@ function MeetupList() {
       />
       {loading && <p className='text-center text-2xl font-bold'>Cargando...</p>}
       <ul className='grid gap-4 pb-12  grid-cols-[repeat(auto-fill,minmax(350px,1fr))] justify-items-center 2xl:mx-44 xl:mx-30 lg:mx-20 md:mx-6 sm:mx-3 '>
-        {filterMeetups?.length > 0 &&
+        {filterMeetups?.length > 0 ? (
           filterMeetups.map((meetup) => (
             <MeetupCard
               id={meetup.id}
@@ -39,7 +39,12 @@ function MeetupList() {
               city={meetup.city}
               date={meetup.date}
             />
-          ))}
+          ))
+        ) : (
+          <h4 className='text-center col-span-4  mt-20 text-2xl font-bold'>
+            No hay meetups disponibles ...
+          </h4>
+        )}
       </ul>
     </div>
   );

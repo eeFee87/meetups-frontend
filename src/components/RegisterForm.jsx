@@ -12,7 +12,7 @@ function RegisterForm() {
     biography: '',
     avatar: ''
   });
-  console.log(registerData);
+
   const [loading, setLoading] = useState(false);
   const handleInputChangeFile = ({ target }) => {
     const { name, files } = target;
@@ -59,13 +59,13 @@ function RegisterForm() {
     }
   };
   return (
-    <div className='flex flex-col items-center gap-8 pb-5'>
-      <h3 className=' text-center text-5xl font-bold text-teal-600 drop-shadow-md pt-16'>
+    <div className='flex flex-col items-center gap-8 pb-16'>
+      <h3 className=' text-center text-5xl font-bold text-teal-600 drop-shadow-md pt-8'>
         "¡Crea tu usuario!"
       </h3>
       <form
         onSubmit={handleSubmit}
-        className='min-w-[300px] pt-12'
+        className='min-w-[400px] pt-8 '
       >
         <div className='mb-6'>
           <label
@@ -149,7 +149,7 @@ function RegisterForm() {
             name='biography'
             value={registerData.biography}
             onChange={handleInputChange}
-            className='shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5'
+            className='shadow-sm min-h-[100px] bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5'
             placeholder=''
           />
         </div>
@@ -165,14 +165,18 @@ function RegisterForm() {
             id='file_input_avatar'
             name='avatar'
             onChange={handleInputChangeFile}
-            className='mb-6  text-md  text-gray-900 border border-gray-300 rounded-md cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dar'
+            className='block w-full text-sm text-slate-500 file:w-[150px]  border border-gray-300 rounded-lg
+        file:mr-4 file:py-2 file:px-4 file:rounded-md
+        file:border-0 file:text-sm file:font-semibold
+        file:bg-teal-50 file:text-teal-700
+        hover:file:bg-teal-100'
           />
         </div>
 
         <button
           disabled={loading}
           type='submit'
-          className='text-white bg-teal-700 hover:bg-teal-800 focus:ring-4 focus:outline-none focus:ring-teal-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-teal-600 dark:hover:bg-teal-700 dark:focus:ring-teal-800'
+          className='mt-6 text-white bg-teal-700 hover:bg-teal-800 focus:ring-4 focus:outline-none focus:ring-teal-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-teal-600 dark:hover:bg-teal-700 dark:focus:ring-teal-800'
         >
           Registrar
         </button>

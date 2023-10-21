@@ -31,7 +31,7 @@ function LoginForm() {
   };
   return (
     <div className='flex flex-col items-center gap-8'>
-      <h3 className=' text-center text-5xl font-bold text-teal-600 drop-shadow-md pt-16'>
+      <h3 className=' text-center text-5xl font-bold text-teal-600 drop-shadow-md pt-8'>
         "¡Inicia Sesion!"
       </h3>
 
