@@ -22,10 +22,9 @@ export const createMeetupService = async (meetupData) => {
       Authorization: token
     },
     body: meetupData
-    // body: meetupData
   });
   const data = await response.json();
-  console.log(data);
+
   return data;
 };
 

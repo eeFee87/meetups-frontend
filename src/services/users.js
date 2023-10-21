@@ -2,13 +2,11 @@ import { getToken } from '../utils/getToken';
 const url = import.meta.env.VITE_API_URL;
 
 export const registerService = async (registerData) => {
+  console.log(registerData);
   try {
     const response = await fetch(`${url}/users`, {
       method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(registerData)
+      body: registerData
     }).catch(function (error) {
       // Error handling here!
 

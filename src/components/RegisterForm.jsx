@@ -9,9 +9,19 @@ function RegisterForm() {
     name: '',
     email: '',
     password: '',
-    biography: ''
+    biography: '',
+    avatar: ''
   });
+  console.log(registerData);
   const [loading, setLoading] = useState(false);
+  const handleInputChangeFile = ({ target }) => {
+    const { name, files } = target;
+    console.log(files[0]);
+    setRegisterData({
+      ...registerData,
+      [name]: files[0]
+    });
+  };
   const handleInputChange = ({ target }) => {
     const { name, value } = target;
     setRegisterData({
@@ -30,7 +40,11 @@ function RegisterForm() {
     } else {
       try {
         setLoading(true);
-        const result = await registerService(registerData);
+        const formData = new FormData();
+        for (const key in registerData) {
+          formData.append(key, registerData[key]);
+        }
+        const result = await registerService(formData);
         if (result.status === 'error') {
           throw new Error(result.message);
         } else {
@@ -137,6 +151,21 @@ function RegisterForm() {
             onChange={handleInputChange}
             className='shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5'
             placeholder=''
+          />
+        </div>
+        <div className='w-full '>
+          <label
+            className='block mb-2 text-sm font-medium text-gray-900 '
+            htmlFor='file_input'
+          >
+            Añadir imagen
+          </label>
+          <input
+            type='file'
+            id='file_input_avatar'
+            name='avatar'
+            onChange={handleInputChangeFile}
+            className='mb-6  text-md  text-gray-900 border border-gray-300 rounded-md cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dar'
           />
         </div>
 

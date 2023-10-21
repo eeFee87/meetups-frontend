@@ -3,7 +3,7 @@ import meetupLogo from '../assets/meetup-logo-2.png';
 import avatarDefault from '../assets/avatar-default.png';
 import { NavLink } from 'react-router-dom';
 import { useAuth } from '../hooks/useAuth';
-// const backendUrl = import.meta.env.VITE_API_URL;
+const backendUrl = import.meta.env.VITE_API_URL;
 
 function Header({ children }) {
   const { authUser } = useAuth();
@@ -20,13 +20,14 @@ function Header({ children }) {
       {authUser && (
         <div className='flex items-center gap-4'>
           <img
-            className='opacity-80'
-            width={40}
-            // src={`${backendUrl}/docs/images/${authUser.avatar}`}
-            src={avatarDefault}
+            className='opacity-80 rounded-lg shadow-md shadow-gray-800'
+            width={50}
+            src={`${backendUrl}/${authUser.avatar}`}
             alt='avatar image'
           />
-          <p className='text-2xl font-semibold'> {authUser.name}</p>
+          <p className='text-2xl font-medium italic text-teal-800 '>
+            {authUser.name}
+          </p>
         </div>
       )}
 
