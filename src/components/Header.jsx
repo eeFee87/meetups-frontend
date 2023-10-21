@@ -1,6 +1,5 @@
 import PropTypes from 'prop-types';
 import meetupLogo from '../assets/meetup-logo-2.png';
-import avatarDefault from '../assets/avatar-default.png';
 import { NavLink } from 'react-router-dom';
 import { useAuth } from '../hooks/useAuth';
 const backendUrl = import.meta.env.VITE_API_URL;
@@ -20,7 +19,7 @@ function Header({ children }) {
       {authUser && (
         <div className='flex items-center gap-4'>
           <img
-            className='opacity-80 rounded-lg shadow-md shadow-gray-800'
+            className='opacity-80 rounded-full shadow-md shadow-gray-800'
             width={50}
             src={`${backendUrl}/${authUser.avatar}`}
             alt='avatar image'
