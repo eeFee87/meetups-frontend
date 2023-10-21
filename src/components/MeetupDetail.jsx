@@ -1,6 +1,5 @@
 import PropTypes from 'prop-types';
 import { useState } from 'react';
-import defaultPhoto from '../assets/default-meetup-image.jpg';
 import clockIcon from '../assets/clock-icon.png';
 import calendarIcon from '../assets/calendar-icon.png';
 import { useAuth } from '../hooks/useAuth';
@@ -8,6 +7,7 @@ import {
   deleteInscribeMeetupService,
   inscribeMeetupService
 } from '../services/meetups';
+const backendUrl = import.meta.env.VITE_API_URL;
 
 function MeetupDetail({ meetup }) {
   const { authUser } = useAuth();
@@ -39,15 +39,14 @@ function MeetupDetail({ meetup }) {
       <h1 className='text-center text-6xl font-bold drop-shadow-sm py-14'>
         {meetup.title}
       </h1>
-      <div className='flex flex-col justify-around items-center gap-8 py-16 sm:flex-row xl:mx-44'>
+      <div className='flex flex-col justify-evenly items-center gap-8 py-16 sm:flex-row xl:mx-44'>
         <img
-          className='drop-shadow-lg'
-          width={400}
-          src={defaultPhoto}
+          className='drop-shadow-lg w-[600px] h-[400px] object-cover rounded-lg'
+          src={`${backendUrl}/${meetup.photo}`}
           alt='meetup image'
         />
 
-        <p className='text-2xl text-center sm:text-left font-semibold'>
+        <p className='text-2xl  text-center sm:text-left font-semibold'>
           {meetup.description}
         </p>
       </div>

@@ -1,9 +1,9 @@
 import PropTypes from 'prop-types';
 import { useNavigate } from 'react-router-dom';
 import checkListIcon from '../assets/checklist-icon.png';
-// import defaultMeetupImage from '../assets/default-meetup-image.jpg';
 import cityIcon from '../assets/city-icon.png';
 import calendarIcon from '../assets/calendar-icon.png';
+const backendUrl = import.meta.env.VITE_API_URL;
 export const MeetupCard = ({
   id,
   title,
@@ -22,7 +22,7 @@ export const MeetupCard = ({
     >
       <img
         className='rounded-t-lg w-full h-60 object-cover'
-        src={`http://localhost:3000/${photo}`}
+        src={`${backendUrl}/${photo}`}
         alt='image meetup'
       />
 
