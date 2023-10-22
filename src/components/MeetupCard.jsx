@@ -7,7 +7,6 @@ const backendUrl = import.meta.env.VITE_API_URL;
 export const MeetupCard = ({
   id,
   title,
-  description,
   category,
   totalInscriptions,
   photo,
@@ -27,7 +26,7 @@ export const MeetupCard = ({
       />
 
       <div className='p-5 h-80 flex flex-col'>
-        <h5 className='mb-2 pt-6 h-full text-3xl font-bold tracking-tight text-gray-900 drop-shadow-lg'>
+        <h5 className='mb-2 pt-6 h-full text-3xl font-bold tracking-tight text-gray-800 drop-shadow-md'>
           {title}.
         </h5>
         <div className='flex justify-center pb-3'>

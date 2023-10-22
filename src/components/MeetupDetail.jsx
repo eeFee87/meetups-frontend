@@ -36,10 +36,10 @@ function MeetupDetail({ meetup }) {
 
   return (
     <main>
-      <h1 className='text-center text-6xl font-bold drop-shadow-sm py-14'>
+      <h1 className='text-center text-teal-800 text-6xl font-bold drop-shadow-lg py-14 '>
         {meetup.title}
       </h1>
-      <div className='flex flex-col justify-evenly items-center gap-8 py-16 sm:flex-row xl:mx-44'>
+      <div className='flex flex-col justify-evenly items-center gap-8 py-16 xl:flex-row xl:mx-12 2xl:mx-44'>
         <img
           className='drop-shadow-lg w-[600px] h-[400px] object-cover rounded-lg'
           src={`${backendUrl}/${meetup.photo}`}
