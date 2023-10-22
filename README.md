@@ -1,8 +1,3 @@
-- Iconos para la app de https://www.freepik.es/
-
-- Revisar lo de añadir imagenes de usuarios (formulario de registro)
-- Crear unas 20 meetups bien hechas y con imagenes
-
 # Meetups
 
 ## DESCRIPCIÓN
@@ -24,7 +19,6 @@ estos
 - Visualizar un meetup en detalle. Deben de aparecer los mismos datos que en listado, pero a mayores la descripción y el listado de asistentes
 - Login (email y password)
 - Registro (email, password, nombre, biografía y avatar)
-- **Opcional**: Posibilidad de ordenar meetups por número de asistentes
 
 ### FUNCIONES USUARIOS REGISTRADOS:
 
@@ -32,6 +26,19 @@ estos
 - Inscribirse o darse de baja de un meetup
 - Publicación de meetups (título, descripción, foto, temática, localidad y
   fecha y hora)
-- **Opcional**: Ver el perfil de un usuario y los meetups a los que se ha
-  apuntado ordenados de más nuevo a más antiguo
-- **Opcional**: Gestión del perfil (nombre, biografía y avatar)
+
+## Notas
+
+- Dejo creados unos cuantos usuarios para pruebas.
+
+  - maria, pepe, julia, juan, y jorge
+
+- Para acceder como uno de los **usuarios ya registrados**
+
+  - nombre_de_usuario@email.com
+
+- La **password** de los usuarios que ya hay registrados es:
+
+  - 12345
+
+- Dejo tambien creadas unas cuantas meetups de ejemplo
