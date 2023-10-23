@@ -29,16 +29,4 @@ estos
 
 ## Notas
 
-- Dejo creados unos cuantos usuarios para pruebas.
-
-  - maria, pepe, julia, juan, y jorge
-
-- Para acceder como uno de los **usuarios ya registrados**
-
-  - nombre_de_usuario@email.com
-
-- La **password** de los usuarios que ya hay registrados es:
-
-  - 12345
-
-- Dejo tambien creadas unas cuantas meetups de ejemplo
+Para iniciar la aplicación, debe ejecutar `npm run dev`.
