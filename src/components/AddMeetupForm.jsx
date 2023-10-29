@@ -39,7 +39,6 @@ function AddMeetupForm() {
       formData.set('date', new Date(meetupData.date).toISOString());
 
       const result = await createMeetupService(formData);
-      console.log(result);
       if (result.status === 'error') {
         throw new Error(result.message);
       } else {
