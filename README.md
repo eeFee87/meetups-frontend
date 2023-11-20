@@ -41,7 +41,7 @@ Para iniciar la aplicación, debe ejecutar `npm run dev`.
 
 - ✅ Si el evento creado no tiene foto no se crea pero tampoco se informa de un error.
 
-  **(Ahora toma una imagen por defecto que se guarda en la carpeta public del backend)**
+  **(También coge una imagen por defecto si no se le pasa ninguna imagen)**
 
 - ❌ Estaría bien poder ver la lista de eventos que yo he creado o lista de eventos que sigo. No se pide como requisito.
 
