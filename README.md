@@ -35,7 +35,7 @@ Para iniciar la aplicación, debe ejecutar `npm run dev`.
 
 - ✅ En el fichero .env.example del frontend viene declarada la variable REACT_APPBACKEND. Es incorrecto, al usar Vite las variables de entorno han de empezar por VITE. En lugar de REACT_APP_BACKEND debería ser VITE_API_URL  
   **(Corregido)**
-- Si me registro sin avatar aparece un link de imagen roto en lugar de un avatar por defecto.
+- ✅ Si me registro sin avatar aparece un link de imagen roto en lugar de un avatar por defecto.
 
   **(Ahora toma una imagen por defecto que se guarda en la carpeta public del backend)**
 
