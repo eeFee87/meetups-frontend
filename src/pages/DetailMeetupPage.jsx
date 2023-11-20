@@ -12,7 +12,7 @@ const DetailMeetupPage = () => {
     return <h1>Cargando...</h1>;
   }
   return (
-    <div className='mx-60 sm:mx-20 xs:mx-2'>
+    <div className='mx-60 sm:mx-20 xs:mx-2 '>
       {meetup && (
         <div>
           <Header>

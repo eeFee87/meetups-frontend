@@ -33,7 +33,16 @@ Para iniciar la aplicación, debe ejecutar `npm run dev`.
 
 ## TODO
 
-- En el fichero .env.example del frontend viene declarada la variable REACT_APPBACKEND. Es incorrecto, al usar Vite las variables de entorno han de empezar por VITE. En lugar de REACT_APP_BACKEND debería ser VITE_API_URL
+- ✅ En el fichero .env.example del frontend viene declarada la variable REACT_APPBACKEND. Es incorrecto, al usar Vite las variables de entorno han de empezar por VITE. En lugar de REACT_APP_BACKEND debería ser VITE_API_URL  
+  **(Corregido)**
 - Si me registro sin avatar aparece un link de imagen roto en lugar de un avatar por defecto.
-- Si el evento creado no tiene foto no se crea pero tampoco se informa de un error.(Poner imagen por defecto)
-- Estaría bien poder ver la lista de eventos que yo he creado o lista de eventos que sigo. No se pide como requisito.
+
+  **(Ahora toma una imagen por defecto que se guarda en la carpeta public del backend)**
+
+- ✅ Si el evento creado no tiene foto no se crea pero tampoco se informa de un error.
+
+  **(Ahora toma una imagen por defecto que se guarda en la carpeta public del backend)**
+
+- ❌ Estaría bien poder ver la lista de eventos que yo he creado o lista de eventos que sigo. No se pide como requisito.
+
+  **(No se pide como requisito)**
